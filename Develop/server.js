@@ -1,10 +1,12 @@
+var PORT = process.env.PORT || 3000;
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const notes = require('./db/db.json');
 const path = require('path');
 // const uuid = require('uuid');
-const port = 3000
+// const port = 3000
 
 //need fs
 const fs = require('fs');
