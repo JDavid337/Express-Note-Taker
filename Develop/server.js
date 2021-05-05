@@ -25,6 +25,10 @@ app.get('/', (req, res) => res.sendFile('/index.html', rootObj));
 
 app.get('/notes', (req, res) => res.sendFile('/notes.html', rootObj));
 
+app.get("/", function(req, res) {
+    res.json(path.join(__dirname, 'public/index.html'));
+});
+
 app.get('/api/notes', (req, res) => {
     console.log('/api/notespost')
     let json = getJson();
