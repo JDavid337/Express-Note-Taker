@@ -5,7 +5,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const notes = require('./db/db.json');
 const path = require('path');
-// const uuid = require('uuid');
 const port = 3001
 
 //need fs
