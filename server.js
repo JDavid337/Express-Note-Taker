@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const notes = require('./db/db.json');
 const path = require('path');
-const port = 3001
+const {v4: uuidv4} = require("uuid")
 
 //need fs
 const fs = require('fs');
@@ -58,7 +58,7 @@ app.delete('/api/notes/:id', (req, res) => {
     res.json(getJson());
 })
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(PORT, () => console.log(`Example app listening at http://localhost:${PORT}`))
 
 function getJson() {
     let data = fs.readFileSync(__dirname + '/db/db.json');
@@ -79,6 +79,7 @@ function createNoteObject(data) {
 function addNoteToJSON(note) {
     let json = getJson();
     let newNote = createNoteObject(note);
+    newNote.id = uuidv4()
     json.push(newNote);
     saveJSON(json);
 }
